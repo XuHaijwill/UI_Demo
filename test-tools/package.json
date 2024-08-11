@@ -1,14 +1,12 @@
 {
-  "name": "nodejs",
+  "name": "test-tools",
   "version": "1.0.0",
-  "main": "11_自定义模块.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "moment": "^2.30.1"
-  }
+  "description": ""
 }
