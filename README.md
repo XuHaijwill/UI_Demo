@@ -23,7 +23,7 @@ https://babeljs.io/docs/babel-plugin-transform-private-methods
 > [g6_learning](https://gitee.com/breencl/g6_learning)
 > [可视化—AntV G6 紧凑树实现节点与边动态样式、超过X条展示更多等实用小功能](https://blog.csdn.net/angel1003645956/article/details/130437664)
 > [VUE实战6：鼠标悬停显示弹出窗口](https://segmentfault.com/a/1190000021931905) - https://github.com/codebdy/rxdrag
-> 
+> [提示框](https://g6-next.antv.antgroup.com/zh/examples/plugin/tooltip/#basic)
 > 
 > https://g6-next.antv.antgroup.com/api/graph/option
 

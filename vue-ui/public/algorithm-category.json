@@ -5,28 +5,60 @@
         "id": "Classification",
         "children": [
           {
-            "id": "Logistic regression"
+            "id": "Logistic regression",
+            "data":{
+             "label": "Logistic regression",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "Linear discriminant analysis"
+            "id": "Linear discriminant analysis",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "Rules"
+            "id": "Rules",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "Decision trees"
+            "id": "Decision trees",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "Naive Bayes"
+            "id": "Naive Bayes",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "K nearest neighbor"
+            "id": "K nearest neighbor",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "Probabilistic neural network"
+            "id": "Probabilistic neural network",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "Support vector machine"
+            "id": "Support vector machine",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           }
         ]
       },
@@ -37,22 +69,46 @@
             "id": "Models diversity",
             "children": [
               {
-                "id": "Different initializations"
+                "id": "Different initializations",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               },
               {
-                "id": "Different parameter choices"
+                "id": "Different parameter choices",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               },
               {
-                "id": "Different architectures"
+                "id": "Different architectures",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               },
               {
-                "id": "Different modeling methods"
+                "id": "Different modeling methods",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               },
               {
-                "id": "Different training sets"
+                "id": "Different training sets",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               },
               {
-                "id": "Different feature sets"
+                "id": "Different feature sets",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               }
             ]
           },
@@ -60,10 +116,18 @@
             "id": "Methods",
             "children": [
               {
-                "id": "Classifier selection"
+                "id": "Classifier selection",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               },
               {
-                "id": "Classifier fusion"
+                "id": "Classifier fusion",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               }
             ]
           },
@@ -71,13 +135,25 @@
             "id": "Common",
             "children": [
               {
-                "id": "Bagging"
+                "id": "Bagging",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               },
               {
-                "id": "Boosting"
+                "id": "Boosting",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               },
               {
-                "id": "AdaBoost"
+                "id": "AdaBoost",
+                "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
               }
             ]
           }
@@ -87,19 +163,39 @@
         "id": "Regression",
         "children": [
           {
-            "id": "Multiple linear regression"
+            "id": "Multiple linear regression",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "Partial least squares"
+            "id": "Partial least squares",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "Multi-layer feed forward neural network"
+            "id": "Multi-layer feed forward neural network",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "General regression neural network"
+            "id": "General regression neural network",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           },
           {
-            "id": "Support vector regression"
+            "id": "Support vector regression",
+            "data":{
+             "label": "Linear discriminant analysis",
+             "description": "This is node-0."
+            }
           }
         ]
       }

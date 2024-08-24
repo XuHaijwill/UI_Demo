@@ -1,5 +1,6 @@
 <template>
-  <div id="container" style="flex: 0 0 auto; position: relative; outline: none; width: 62%;"></div>
+  <div id="container" style="flex: 0 0 auto; position: relative; outline: none; width: 62%;">
+  </div>
 </template>
 
 <script>
@@ -23,6 +24,11 @@ import {
 
 export default {
   name: "startG6",
+  data() {
+    return {
+      show: false
+    };
+  },
   created() {
 
   },
@@ -428,7 +434,7 @@ export default {
         dbclickShow = async (event) => {
           console.log("dbclickShow Event")
           console.log(event)
-          alert("db cliicks "  + event.target.id);
+          alert("db cliicks " + event.target.id);
         }
       }
 
@@ -492,6 +498,18 @@ export default {
               getHGap: () => 60,
               getSide: (node) => getDirection(graph, node.id),
             },
+            plugins: [
+              {
+                type: 'tooltip',
+                getContent: (e, items) => {
+                  let result = `<h4>Custom Content</h4>`;
+                  items.forEach((item) => {
+                    result += `<p>Type: "${item.data.description}"</p>`;
+                  });
+                  return result;
+                },
+              },
+            ],
             animation: false,
             behaviors: ['drag-canvas', 'zoom-canvas', 'collapse-expand-tree'],
           });
