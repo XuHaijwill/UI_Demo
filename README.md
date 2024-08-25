@@ -18,6 +18,8 @@
 ## babeljs
 https://babeljs.io/docs/babel-plugin-transform-private-methods
 
+## Ant v G6
+> [Ant V g6](https://g6-next.antv.antgroup.com/zh/examples/plugin/edge-filter-lens/#basic)
 > https://www.yuque.com/antv/g6/quick-start
 > https://github.com/Jim-jw/g6-in-vue/blob/main/src/plugins/data.js
 > [vue g6 hello world](https://blog.csdn.net/clj198606061111/article/details/90762216)
