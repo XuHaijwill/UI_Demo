@@ -1,6 +1,30 @@
 <template>
-  <div id="container" style="flex: 0 0 auto; position: relative; outline: none; width: 62%;">
+  <div class="app-container">
+    <div id="GraphContainer" style="flex: 0 0 auto; position: relative; outline: none; width: 62%;"></div>
+
+    <el-dialog v-model="dialogFormVisible" title="Shipping address" width="500">
+      <el-form :model="form">
+        <el-form-item label="Promotion name" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="Zones" :label-width="formLabelWidth">
+          <el-select v-model="form.region" placeholder="Please select a zone">
+            <el-option label="Zone No.1" value="shanghai" />
+            <el-option label="Zone No.2" value="beijing" />
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="dialogFormVisible = false">Cancel</el-button>
+          <el-button type="primary" @click="dialogFormVisible = false">
+            Confirm
+          </el-button>
+        </div>
+      </template>
+    </el-dialog>
   </div>
+
 </template>
 
 <script>
@@ -18,7 +42,7 @@ import {
   iconfont,
   NodeEvent,
   register,
-  treeToGraphData,
+  treeToGraphData
 } from '@antv/g6';
 
 
@@ -26,7 +50,9 @@ export default {
   name: "startG6",
   data() {
     return {
-      show: false
+      formLabelWidth: "140px",
+      form: {},
+      dialogFormVisible: false
     };
   },
   created() {
@@ -196,9 +222,9 @@ export default {
           };
         }
 
-        drawCollapseShape(attributes, container) {
+        drawCollapseShape(attributes, GraphContainer) {
           const iconStyle = this.getCollapseStyle(attributes);
-          const btn = this.upsert('collapse-expand', Badge, iconStyle, container);
+          const btn = this.upsert('collapse-expand', Badge, iconStyle, GraphContainer);
 
           this.forwardEvent(btn, CommonEvent.CLICK, (event) => {
             event.stopPropagation();
@@ -228,9 +254,9 @@ export default {
           };
         }
 
-        drawCountShape(attributes, container) {
+        drawCountShape(attributes, GraphContainer) {
           const countStyle = this.getCountStyle(attributes);
-          const btn = this.upsert('count', Badge, countStyle, container);
+          const btn = this.upsert('count', Badge, countStyle, GraphContainer);
 
           this.forwardEvent(btn, CommonEvent.CLICK, (event) => {
             event.stopPropagation();
@@ -292,11 +318,11 @@ export default {
           };
         }
 
-        drawAddShape(attributes, container) {
+        drawAddShape(attributes, GraphContainer) {
           const addStyle = this.getAddStyle(attributes);
           const addBarStyle = this.getAddBarStyle(attributes);
-          this.upsert('add-bar', Rect, addBarStyle, container);
-          const btn = this.upsert('add', Badge, addStyle, container);
+          this.upsert('add-bar', Rect, addBarStyle, GraphContainer);
+          const btn = this.upsert('add', Badge, addStyle, GraphContainer);
 
           this.forwardEvent(btn, CommonEvent.CLICK, (event) => {
             event.stopPropagation();
@@ -317,18 +343,18 @@ export default {
           return { width, height, ...keyShape };
         }
 
-        drawKeyShape(attributes, container) {
+        drawKeyShape(attributes, GraphContainer) {
           const keyStyle = this.getKeyStyle(attributes);
-          return this.upsert('key', Rect, keyStyle, container);
+          return this.upsert('key', Rect, keyStyle, GraphContainer);
         }
 
-        render(attributes = this.parsedAttributes, container) {
-          super.render(attributes, container);
+        render(attributes = this.parsedAttributes, GraphContainer) {
+          super.render(attributes, GraphContainer);
 
-          this.drawCollapseShape(attributes, container);
-          this.drawAddShape(attributes, container);
+          this.drawCollapseShape(attributes, GraphContainer);
+          this.drawAddShape(attributes, GraphContainer);
 
-          this.drawCountShape(attributes, container);
+          this.drawCountShape(attributes, GraphContainer);
         }
       }
 
@@ -363,7 +389,7 @@ export default {
           graph.on(NodeEvent.POINTER_LEAVE, this.hideIcon);
           graph.on(TreeEvent.COLLAPSE_EXPAND, this.onCollapseExpand);
           graph.on(TreeEvent.ADD_CHILD, this.addChild);
-          graph.on(NodeEvent.DBLCLICK, this.dbclickShow);
+          // graph.on(NodeEvent.DBLCLICK, this.dbclickShow);
         }
 
         unbindEvents() {
@@ -380,7 +406,8 @@ export default {
         showIcon = (event) => {
           // this.setIcon(event, true);
           console.log("123456");
-          console.log(event)
+          console.log(event);
+
         };
 
         hideIcon = (event) => {
@@ -431,16 +458,20 @@ export default {
           this.status = 'idle';
         };
 
-        dbclickShow = async (event) => {
-          console.log("dbclickShow Event")
-          console.log(event)
-          alert("db cliicks " + event.target.id);
-        }
+        // dbclickShow = async (event) => {
+        //   console.log("dbclickShow Event")
+        //   console.log(event)
+        //   // alert("db cliicks " + event.target.id);
+        //   this.dialogFormVisible = true;
+        //   console.log(this.dialogFormVisible)
+        //   alert("db cliicks:" + this.dialogFormVisible);
+        // }
       }
 
       register(ExtensionCategory.NODE, 'mindmap', MindmapNode);
       register(ExtensionCategory.EDGE, 'mindmap', MindmapEdge);
       register(ExtensionCategory.BEHAVIOR, 'collapse-expand-tree', CollapseExpandTree);
+
 
       fetch('./algorithm-category.json')
         .then((res) => res.json())
@@ -448,7 +479,7 @@ export default {
           const rootId = data.id;
 
           const graph = new Graph({
-            container: 'container',
+            container: 'GraphContainer',
             autoResize: true,
             x: 0,
             data: treeToGraphData(data),
@@ -508,6 +539,26 @@ export default {
                   });
                   return result;
                 },
+              },
+              {
+                type: 'contextmenu',
+                trigger: 'click', // 'click' or 'contextmenu'
+                onClick: (v) => {
+                 console.log(v)
+                  // alert('You have clicked the「' + v + '」item');
+                  console.log('You have clicked the「' + v + '」item')
+                  this.dialogFormVisible = true;
+                },
+                getItems: (item) => {
+                  console.log("item")
+                  console.log(item.target.id)
+                  console.log("====")
+                  return [
+                    { name: '展开一度关系', value: 'spread' },
+                    { name: '查看详情', value: item.target.id },
+                  ];
+                },
+                enable: (e) => e.targetType === 'node',
               },
             ],
             animation: false,

@@ -11,6 +11,9 @@
         <RouterLink to="/G6Editor">
           G6Editor
         </RouterLink>
+        <RouterLink to="/DialogDemo">
+          DialogDemo
+        </RouterLink>
       </nav>
     </header>
     <RouterView />

@@ -10,6 +10,7 @@
 > npm install --save @antv/g6@4.8.21
 > npm install --save @antv/g6@3.8.3
 > npm install --save vue-router
+> npm install vue-template-compiler --save-dev
 
 ## vue3-router-example
 > https://github.com/udsgit/vue3-router-example/blob/master/src/components/UserInfo.vue
@@ -24,7 +25,11 @@ https://babeljs.io/docs/babel-plugin-transform-private-methods
 > [可视化—AntV G6 紧凑树实现节点与边动态样式、超过X条展示更多等实用小功能](https://blog.csdn.net/angel1003645956/article/details/130437664)
 > [VUE实战6：鼠标悬停显示弹出窗口](https://segmentfault.com/a/1190000021931905) - https://github.com/codebdy/rxdrag
 > [提示框](https://g6-next.antv.antgroup.com/zh/examples/plugin/tooltip/#basic)
-> 
+> [vue3 element plus](https://gitee.com/jxywb/vue3-element.git)
+- [AntV G6 Event](http://g6-v3-2.antv.vision/zh/docs/api/Event)
+- [element-plus](https://element-plus.org/en-US/component/dialog)
+- [G6使用踩坑记录](https://juejin.cn/post/7158703724695650311) - G6.Menu
+- [antv g6右击节点自定义上下文菜单实现](https://blog.csdn.net/weixin_43123984/article/details/126284800)
 > https://g6-next.antv.antgroup.com/api/graph/option
 
 
@@ -51,6 +56,12 @@ module.exports = {
   ]
 
 }
+```
+
+# types.js:39 Uncaught TypeError: Cannot read property ‘prototype‘ of undefined
+```
+因为使用的是vue3.0 cli- 不兼容element ui
+https://blog.csdn.net/weixin_44763595/article/details/117987906
 ```
 
 ## 4.8.21
