@@ -33,6 +33,7 @@ https://babeljs.io/docs/babel-plugin-transform-private-methods
 - [G6使用踩坑记录](https://juejin.cn/post/7158703724695650311) - G6.Menu
 - [antv g6右击节点自定义上下文菜单实现](https://blog.csdn.net/weixin_43123984/article/details/126284800)
 > https://g6-next.antv.antgroup.com/api/graph/option
+> search input(https://devpress.csdn.net/vue/66cadacca1ed2f4c853d072f.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NjE2NDU3OSwiZXhwIjoxNzMxNDE5NjczLCJpYXQiOjE3MzA4MTQ4NzMsInVzZXJuYW1lIjoieGhqZGVidWcifQ.FqqGXDwnKS34TvuegbVyNlaZ76C3Colgi-5I4e9sZRg&spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Eactivity-3-90644068-blog-104776546.235%5Ev43%5Epc_blog_bottom_relevance_base9&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Eactivity-3-90644068-blog-104776546.235%5Ev43%5Epc_blog_bottom_relevance_base9&utm_relevant_index=6)
 
 
 # ISSUES

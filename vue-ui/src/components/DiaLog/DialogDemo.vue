@@ -1,104 +1,62 @@
 <template>
-    <div>
-    <el-button plain @click="dialogTableVisible = true">
-      Open a Table nested Dialog
-    </el-button>
-
-
-    <el-button plain @click="dialogFormVisible = true">
-      Open a Form nested Dialog
-    </el-button>
-  
-    <el-dialog v-model="dialogTableVisible" title="Shipping address" width="800">
-      <el-table :data="gridData">
-        <el-table-column property="date" label="Date" width="150" />
-        <el-table-column property="name" label="Name" width="200" />
-        <el-table-column property="address" label="Address" />
-      </el-table>
-    </el-dialog>
-  
-    <el-dialog v-model="dialogFormVisible" title="Shipping address" width="500">
-      <el-form :model="form">
-        <el-form-item label="Promotion name" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off" />
-        </el-form-item>
-        <el-form-item label="Zones" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="Please select a zone">
-            <el-option label="Zone No.1" value="shanghai" />
-            <el-option label="Zone No.2" value="beijing" />
-          </el-select>
-        </el-form-item>
-      </el-form>
-      <template #footer>
-        <div class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">Cancel</el-button>
-          <el-button type="primary" @click="dialogFormVisible = false">
-            Confirm
-          </el-button>
-        </div>
-      </template>
-    </el-dialog>
-    </div>
-    
-  </template>
-  
-  <script>
-  import { reactive } from 'vue'
-
-  export default {
-    name: 'DialogDemo',
-    data() {
-    return{
-        dialogTableVisible: false,
-        dialogFormVisible: false,
-        formLabelWidth: "140px",
-        form: {},
-        gridData: {}
-    }
+  名称:
+  <el-autocomplete v-model="searchname" :fetch-suggestions="querySearchAsync" placeholder="请输入名称:" clearable></el-autocomplete>
+</template>
+<script>
+export default {
+  name: "inputSearch",
+  url: "",
+  mounted: function () {
+    this.loadAll();
   },
-  created() {
-    this.form = reactive({
-    name: '',
-    region: '',
-    date1: '',
-    date2: '',
-    delivery: false,
-    type: [],
-    resource: '',
-    desc: '',
-  });
-  this.gridData = [
-    {
-      date: '2016-05-02',
-      name: 'John Smith',
-      address: 'No.1518,  Jinshajiang Road, Putuo District',
-    },
-    {
-      date: '2016-05-04',
-      name: 'John Smith',
-      address: 'No.1518,  Jinshajiang Road, Putuo District',
-    },
-    {
-      date: '2016-05-01',
-      name: 'John Smith',
-      address: 'No.1518,  Jinshajiang Road, Putuo District',
-    },
-    {
-      date: '2016-05-03',
-      name: 'John Smith',
-      address: 'No.1518,  Jinshajiang Road, Putuo District',
-    },
-  ]
-},
+  data() {
+    return {
+      //input远程搜索
+      searchname: "",
+      restaurants: [],
+      timeout: null,
+      uploading: false,
+    };
+  },
   methods: {
-    openDialog(){
-          console.log("openDialog=====");
-        },
-       
-    }
+    //名称输入搜索
+    loadAll() {
+      fetch('./TestSearch.json')
+        .then((res) => res.json())
+        .then((data) => {
+          console.info("test",data);
+          console.info(data.data.code)
+        if (data.data.code == 200) {
+          var data2 = [];
+          data.data.data.map((value) => {
+            data2.push({
+              id: value.id,
+              value: value.platformName,          //重新修改后台返回来的Key名
+            });
+          });
+          this.restaurants = data2;
+        } else {
+          this.$message.info("暂无数据");
+        }
+      });
+    },
+    querySearchAsync(queryString, cb) {
+      var restaurants = this.restaurants;
+      var results = queryString
+        ? restaurants.filter(this.createStateFilter(queryString))
+        : restaurants;
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        cb(results);
+      }, 1000 * Math.random());
+    },
+    createStateFilter(queryString) {
+      return state => {
+        return (
+          state.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
+        );
+      };
+    },
   }
-  
-  
-  
-  </script>
-  
+}
+</script>
