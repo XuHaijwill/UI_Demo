@@ -18,7 +18,8 @@
     "unplugin-auto-import": "^0.12.1",
     "unplugin-vue-components": "^0.22.12",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",

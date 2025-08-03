@@ -1,5 +1,10 @@
 # vue_shop
 
+## install yarn 
+```
+npm install yarn
+```
+
 ## Project setup
 ```
 yarn install
